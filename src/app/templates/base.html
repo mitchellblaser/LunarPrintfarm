@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Lunar Printfarm</title>
+    </head>
+    <body>
+        <div>
+            Lunar Printfarm:
+            <a href="/index">Dashboard</a>
+            <a href="/settings">Settings</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
