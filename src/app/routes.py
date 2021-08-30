@@ -1,13 +1,13 @@
 from flask import render_template
 from flask import request
 from app import serverapi
+from app import lunar_api_calls
 from app import app
 
 @app.route('/')
 @app.route('/index')
 def index():
-    print(serverapi.info())
-    return render_template("index.html")
+    return render_template("index.html", servers=serverapi.servers)
 
 @app.route('/settings')
 def settings():

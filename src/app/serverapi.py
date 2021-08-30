@@ -5,7 +5,7 @@ servers = ["http://192.168.0.193"] ## This will need to be set from the gui - ne
 
 def info():
     type = "GET" # "GET"/"POST"
-    path = "/printer/objects/query?toolhead=position&display_status=progress"
+    path = "/printer/objects/query?toolhead=position&display_status=progress&print_stats=filename"
     return make_request(type, path)
 
 def make_request(type, path):

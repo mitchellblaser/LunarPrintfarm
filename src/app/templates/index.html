@@ -2,37 +2,48 @@
 
 {% block content %}
 
+<script src="{{ url_for('static', filename='js/update-index.js') }}"></script>
+
 <div class="uk-container uk-container-small">
     <br><br>
     <h1 class="uk-text-center">Dashboard</h1>
     <br>
 
     <div class="uk-container uk-container-xsmall">
-        <h3 class="uk-width-1-1 uk-text-center">Printer Usage (2/3 Busy)</h3>
-        <progress class="uk-progress uk-align-center uk-width-1-2" value="66.6" max="100"></progress>
+        <h3 class="uk-width-1-1 uk-text-center">Printer Usage (1/1 Busy)</h3>
+        <progress class="uk-progress uk-align-center uk-width-1-2" value="1" max="1"></progress>
         <button class="uk-button uk-button-primary uk-button-large uk-align-center">Upload Print</button>
         <br>
     </div>
 
-    <ul uk-accordion>
+    <ul uk-accordion class="uk-margin-bottom">
+        {% for server in servers %}
         <li>
-            <a class="uk-accordion-title" href="#">Printer 1 (Printing)</a>
+            <a class="uk-accordion-title" href="#">{{ server }}</a>
             <div class="uk-accordion-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <h3 class="uk-card-title">Status</h3>
+                            <p id="{{ server }}_Percentage">Progress: </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body">
+                            <h3 class="uk-card-title">Gcode</h3>
+                            <p id="{{ server }}_FileName">Printing: </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body">
+                            <h3 class="uk-card-title"></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </li>
-        <li>
-            <a class="uk-accordion-title" href="#">Printer 2 (Ready)</a>
-            <div class="uk-accordion-content">
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-            </div>
-        </li>
-        <li>
-            <a class="uk-accordion-title" href="#">Printer 3 (Preheating)</a>
-            <div class="uk-accordion-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-            </div>
-        </li>
+        {% endfor %}
     </ul>
 
 </div>
