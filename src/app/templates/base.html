@@ -1,23 +1,29 @@
 <html>
     <head>
         <title>Lunar Printfarm</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="css/uikit.min.css" /> -->
+        <!-- <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script> -->
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css') }}" />
+
+        <script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/uikit-icons.min.js') }}"></script>
+
     </head>
     <body>
-        <div>
-            Lunar Printfarm:
-            <a href="/index">Dashboard</a>
-            <a href="/settings">Settings</a>
-        </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-center">
+                <a href="#" class="uk-navbar-item uk-logo">Lunar Printfarm</a>
+                <ul class="uk-navbar-nav">
+                    <li {%- if request.path =="/index" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="index">Home</a></li>
+                    <li {%- if request.path =="/queue" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="queue">Queue</a></li>
+                    <li {%- if request.path =="/settings" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="settings">Configure</a></li>
+                </ul>
+            </div>
+        </nav>
         {% block content %}{% endblock %}
     </body>
 </html>

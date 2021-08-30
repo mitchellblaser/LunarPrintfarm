@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="uk-container uk-container-small">
+    <br><br>
+    <h1 class="uk-text-center">Print Queue   <span class="uk-badge">3</span></h1>
+    <br>
+
+    <div class="uk-container uk-container-xsmall">
+        <h3 class="uk-width-1-1 uk-text-center">Printer Usage (2/3 Busy)</h3>
+        <progress class="uk-progress uk-align-center uk-width-1-2" value="66.6" max="100"></progress>
+        <button class="uk-button uk-button-primary uk-button-large uk-align-center">Upload Print</button>
+        <br>
+    </div>
+
+    <ul class="uk-list uk-list-striped uk-width-1-2 uk-align-center">
+        <li class="uk-transition-toggle">
+            <div>1: front_panel.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
+                    <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
+                    <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
+                </div>
+            </div>
+        </li>
+        
+        <li class="uk-transition-toggle">
+            <div>2: rear_panel.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
+                    <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
+                    <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
+                </div>
+            </div>
+        </li>
+
+        <li class="uk-transition-toggle">
+            <div>3: case_walls.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
+                    <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
+                    <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+</div>
+{% endblock %}

@@ -5,10 +5,11 @@ servers = ["http://192.168.0.193"] ## This will need to be set from the gui - ne
 
 def info():
     type = "GET" # "GET"/"POST"
-    path = "/printer/info"
+    path = "/printer/objects/query?toolhead=position&display_status=progress"
     return make_request(type, path)
 
 def make_request(type, path):
+    # returns {'server': {key:value}}
     retval = {}
 
     for server in servers:
