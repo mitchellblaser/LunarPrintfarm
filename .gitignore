@@ -2,3 +2,5 @@
 .DS_Store
 src/.DS_Store
 src/app/.DS_Store
+node_modules
+klipper
