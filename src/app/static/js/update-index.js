@@ -17,4 +17,4 @@ function doUpdate() {
 }
 
 initialUpdate();
-var periodicUpdate = setInterval(doUpdate, 1500);
+var periodicUpdate = setInterval(doUpdate, 5000);
