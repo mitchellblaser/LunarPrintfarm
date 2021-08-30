@@ -8,6 +8,12 @@ def info():
     path = "/printer/objects/query?toolhead=position&display_status=progress&print_stats=filename"
     return make_request(type, path)
 
+def print_file(filepath, server):
+    type = "POST"
+    path = "/server/files/upload"
+    requests.post(server + path, files={"file": open(filepath, 'rb')}, data={"path": "lunar", "print": "true"})
+    return
+
 def make_request(type, path):
     # returns {'server': {key:value}}
     retval = {}
