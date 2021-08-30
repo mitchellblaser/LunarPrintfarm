@@ -8,7 +8,6 @@ function doUpdate() {
     fetch("/api/info").then(r=> r.json().then(j=> info = j));
 
     for (var i=0; i<servers.length; i++) {
-        console.log(info)
         if (info != undefined) {
             var status = info[servers[i]]['result']['status'];
     
