@@ -1,9 +1,9 @@
+let info;
 function initialUpdate() {
     fetch("/api/servers").then(r=> r.json().then(j=> servers = j['servers']));
 }
 
 function doUpdate() {
-    let info;
     var printer_count = servers.length;
     var printing_count = 0;
 
