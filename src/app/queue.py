@@ -1,6 +1,13 @@
 from logging import setLoggerClass
 from app import serverapi
 
+class printQueueObject:
+    def __init__(self):
+        self.name = ""
+        self.estimate_mins = -1
+        self.estimate_str = ""
+        return
+
 # calculate_print_time(string filepath)
 # Returns slicer estimated print time in seconds.
 def calculate_print_time(filepath):

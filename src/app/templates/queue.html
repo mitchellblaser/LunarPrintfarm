@@ -14,30 +14,17 @@
     </div>
 
     <ul class="uk-list uk-list-striped uk-width-1-2 uk-align-center">
+
+        {% for print in printqueue %}
         <li class="uk-transition-toggle">
-            <div>1: front_panel.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
+            <div>{{ print.name }} ({{ print.estimate_str }})<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
                     <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
                     <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
                 </div>
             </div>
         </li>
+        {% endfor %}
         
-        <li class="uk-transition-toggle">
-            <div>2: rear_panel.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
-                    <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
-                    <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
-                </div>
-            </div>
-        </li>
-
-        <li class="uk-transition-toggle">
-            <div>3: case_walls.gcode<div class="uk-flex-inline uk-padding uk-padding-remove-vertical uk-flex-right">
-                    <button class="uk-button uk-button-danger uk-button-small uk-transition-fade">Remove</button>
-                    <button class="uk-button uk-button-secondary uk-button-small uk-transition-fade">Print Now</button>
-                </div>
-            </div>
-        </li>
-
     </ul>
 
 </div>

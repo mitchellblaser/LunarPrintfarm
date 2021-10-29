@@ -15,4 +15,4 @@ def settings():
 
 @app.route('/queue')
 def queue():
-    return render_template("queue.html")
+    return render_template("queue.html", printqueue=[{"name": "Test Print", "estimate_str": "10h6m"}])
