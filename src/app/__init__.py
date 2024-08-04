@@ -3,7 +3,7 @@ from states import PrinterState
 import config
 import printqueue
 
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__)
 
@@ -49,3 +49,11 @@ def job():
 @app.route('/upload/<printer>')
 def uploadprint(printer):
     return render_template("single.html", printer=printers[int(printer)])
+
+@app.route('/upload/<printer>', methods=['POST'])
+def print(printer):
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        uploaded_file.save("./gcode/" + uploaded_file.filename)
+        printers[int(printer)].UploadFile("./gcode/" + uploaded_file.filename, select = True, print = True)
+    return redirect("/")

@@ -11,11 +11,11 @@
 
 
     <div class="uk-container uk-text-center">
-        <form action="/upload">
+        <form action="" method="POST" enctype="multipart/form-data">
             <b>Target Printer: {{printer.name}}</b><br>
             <b>Status: {{printer.GetStatusFriendly()}}</b>
             <br><br>
-            <input type="file" id="fileUpload"><br><br>
+            <input type="file" name="file" id="fileUpload"><br><br>
             
             <input type="submit" class="uk-input uk-button-primary">
         </form>
