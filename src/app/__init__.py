@@ -2,14 +2,16 @@ from printer import Printer, PrinterType
 from states import PrinterState
 import config
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
 printers = []
 
+entries = 0
 for entry in config.printers:
-    printers.append(Printer(entry["name"], entry["type"], entry["ipaddr"], entry["port"], entry["apikey"]).pr)
+    printers.append(Printer(entries, entry["name"], entry["type"], entry["ipaddr"], entry["port"], entry["apikey"]).pr)
+    entries = entries + 1
 
 for printer in printers:
     print(printer.name + " - [" + printer.GetVersion() + "]")
@@ -33,3 +35,12 @@ def GetActivePrinters():
 @app.route('/index')
 def index():
     return render_template("index.html", printers=printers, usage=GetActivePrinters(), max=len(printers))
+
+@app.route('/cancel/<printer>')
+def cancelprint(printer):
+    printers[int(printer)].CancelPrint()
+    return redirect("/")
+
+@app.route('/job')
+def job():
+    return render_template("job.html", printers=printers)

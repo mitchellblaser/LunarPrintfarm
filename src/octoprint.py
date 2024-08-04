@@ -4,12 +4,14 @@ import json
 from states import PrinterState
 
 class PrinterOctoPrint:
-    def __init__(self, name: str, ipaddr: str, port: int, apikey: str):
+    def __init__(self, id: int, name: str, ipaddr: str, port: int, apikey: str):
+        self.id = id
         self.name = name
         self.ipaddr = ipaddr
         self.port = port
         self.apikey = apikey
     
+    id = 0
     name = "Unconfigured"
     ipaddr = "127.0.0.1"
     port = 5000
@@ -39,6 +41,15 @@ class PrinterOctoPrint:
         return PrinterState.ERROR
     
     
+    def GetStatusFriendly(self):
+        match requests.get("http://" + self.ipaddr + ":" + str(self.port) + "/api/job", headers={"X-Api-Key": self.apikey}).json()["state"]:
+            case "Operational":
+                return "Ready"
+            case "Printing":
+                return "Printing"
+        
+        return "Error!"
+    
     def UploadFile(self, filepath: str, select = True, print = False):
         """Opens file from local storage and uploads to target printer.
 
@@ -60,3 +71,7 @@ class PrinterOctoPrint:
         if self.GetStatus() == PrinterState.PRINTING:
             return response
         return 0
+    
+    def CancelPrint(self):
+        requests.post("http://" + self.ipaddr + ":" + str(self.port) + "/api/job", json={"command": "cancel"}, headers={"X-Api-Key": self.apikey})
+        return
