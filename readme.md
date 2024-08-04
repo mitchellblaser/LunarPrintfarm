@@ -20,6 +20,19 @@ A Print Farm Queueing and Distribution Manager for 3D Printers running Klipper a
 * Run `flask --app ./src/lunar.py --debug run`
 * Navigate to `localhost:5000`
 
+## Features
+
+* Quick and simple monitoring of many OctoPrint and Klipper printers
+* Uploading G-Code Files to printers remotely from Web UI
+* Assignable Tags for each printer to mark colors, materials and zones
+
+## Future Roadmap
+
+* Bulk G-Code Uploading, with Filter options referencing Tags for each printer
+* A per-printer queue, with Auto Print Ejection in between each job
+* A "Print Repeat" button for each printer, which allows for continuous printing.
+* GUI Configuration, rather than manually editing the Configuration file.
+
 ## Authors
 
 Mitchell Blaser
