@@ -17,32 +17,12 @@
             <div class="uk-column-1-3">
 
                 <div>
-                    <input type="checkbox" id="TAG_PROD" value="TAG_PROD">
-                    <label for="TAG_PROD"> Production</label><br>
-        
-                    <input type="checkbox" id="TAG_DEV" value="TAG_DEV">
-                    <label for="TAG_DEV"> Development</label><br>
 
-                    <input type="checkbox" id="TAG_PLA" value="TAG_PLA">
-                    <label for="TAG_PLA"> PLA/PLA+</label><br>
-        
-                    <input type="checkbox" id="TAG_PETG" value="TAG_PETG">
-                    <label for="TAG_PETG"> PETG</label><br>
-        
-                    <input type="checkbox" id="TAG_ABS" value="TAG_ABS">
-                    <label for="TAG_ABS"> ABS/ABS+</label><br>
-                    
-                    <input type="checkbox" id="TAG_WHITE" value="TAG_WHITE">
-                    <label for="TAG_WHITE"> White</label><br>
-        
-                    <input type="checkbox" id="TAG_SILVER" value="TAG_SILVER">
-                    <label for="TAG_SILVER"> Silver</label><br>
-        
-                    <input type="checkbox" id="TAG_BLACK" value="TAG_BLACK">
-                    <label for="TAG_BLACK"> Black</label><br>
+                    {% for tag in tags %}
+                        <input type="checkbox" id={{tag}} value={{tag}}>
+                        <label for={{tag}}> {{tag}}</label><br>
+                    {% endfor %}
 
-                    <input type="checkbox" id="TAG_ORANGE" value="TAG_ORANGE">
-                    <label for="TAG_ORANGE"> Orange</label><br>
                 </div>
             </div>
 

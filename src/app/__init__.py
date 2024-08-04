@@ -1,6 +1,7 @@
 from printer import Printer, PrinterType
 from states import PrinterState
 import config
+import printqueue
 
 from flask import Flask, render_template, redirect
 
@@ -10,7 +11,7 @@ printers = []
 
 entries = 0
 for entry in config.printers:
-    printers.append(Printer(entries, entry["name"], entry["type"], entry["ipaddr"], entry["port"], entry["apikey"]).pr)
+    printers.append(Printer(entries, entry["name"], entry["type"], entry["ipaddr"], entry["port"], entry["apikey"], entry["tags"]).pr)
     entries = entries + 1
 
 for printer in printers:
@@ -43,4 +44,4 @@ def cancelprint(printer):
 
 @app.route('/job')
 def job():
-    return render_template("job.html", printers=printers)
+    return render_template("job.html", printers=printers, tags=printqueue.CollectAllTags(printers))

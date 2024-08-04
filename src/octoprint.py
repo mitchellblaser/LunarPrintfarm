@@ -4,18 +4,20 @@ import json
 from states import PrinterState
 
 class PrinterOctoPrint:
-    def __init__(self, id: int, name: str, ipaddr: str, port: int, apikey: str):
+    def __init__(self, id: int, name: str, ipaddr: str, port: int, apikey: str, tags: list):
         self.id = id
         self.name = name
         self.ipaddr = ipaddr
         self.port = port
         self.apikey = apikey
+        self.tags = tags
     
     id = 0
     name = "Unconfigured"
     ipaddr = "127.0.0.1"
     port = 5000
     apikey = ""
+    tags = []
     
     def GetVersion(self):
         """Returns version string from printer.
