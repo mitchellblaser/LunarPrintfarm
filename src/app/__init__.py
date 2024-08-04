@@ -45,3 +45,7 @@ def cancelprint(printer):
 @app.route('/job')
 def job():
     return render_template("job.html", printers=printers, tags=printqueue.CollectAllTags(printers))
+
+@app.route('/upload/<printer>')
+def uploadprint(printer):
+    return render_template("single.html", printer=printers[int(printer)])

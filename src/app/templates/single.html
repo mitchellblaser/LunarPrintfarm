@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script src="{{ url_for('static', filename='js/update-index.js') }}"></script>
+
+<div class="uk-container uk-container-small">
+    <br><br>
+    <h1 class="uk-text-center">Print File</h1>
+    <br>
+
+
+    <div class="uk-container uk-text-center">
+        <form action="/upload">
+            <b>Target Printer: {{printer.name}}</b><br>
+            <b>Status: {{printer.GetStatusFriendly()}}</b>
+            <br><br>
+            <input type="file" id="fileUpload"><br><br>
+            
+            <input type="submit" class="uk-input uk-button-primary">
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

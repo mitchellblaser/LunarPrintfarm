@@ -18,9 +18,9 @@
             <div class="uk-navbar-center">
                 <a href="#" class="uk-navbar-item uk-logo">Lunar Printfarm</a>
                 <ul class="uk-navbar-nav">
-                    <li {%- if request.path =="/index" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="index">Dashboard</a></li>
-                    <li {%- if request.path =="/job" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="job">Add Job</a></li>
-                    <li {%- if request.path =="/settings" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="settings">Settings</a></li>
+                    <li {%- if request.path =="/index" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="/index">Dashboard</a></li>
+                    <li {%- if request.path =="/job" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="/job">Bulk Job</a></li>
+                    <li {%- if request.path =="/settings" %} class="uk-active" {% else %} class="uk-parent" {% endif %}><a href="/settings">Settings</a></li>
                 </ul>
             </div>
         </nav>
