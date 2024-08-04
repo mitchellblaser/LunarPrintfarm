@@ -22,9 +22,9 @@
                 <div>
                     <text class="uk-card-title">{{ printer.name }}</text>
                     <br>
-                    <span class="uk-badge">Production</span>
-                    <span class="uk-badge">PLA+</span>
-                    <span class="uk-badge">White</span>
+                    {% for tag in printer.tags %}
+                    <span class="uk-badge">{{tag}}</span>
+                    {% endfor %}
                     <br><br>
                     <a href=/cancel/{{printer.id}} class="uk-icon-button" uk-icon="close"></a>
                     <a href=/upload/{{printer.id}} class="uk-icon-button" uk-icon="print"></a>
