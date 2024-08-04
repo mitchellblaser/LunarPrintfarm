@@ -23,7 +23,6 @@ A Print Farm Queueing and Distribution Manager for 3D Printers running Klipper a
 ## Authors
 
 Mitchell Blaser
-[@mblaser_](https://twitter.com/mblaser_)
 
 ## Version History
 
