@@ -10,39 +10,28 @@
     <br>
 
     <div class="uk-container uk-container-xsmall">
-        <h3 id="utilization_title" class="uk-width-1-1 uk-text-center">Printer Usage (0/0 Busy)</h3>
-        <progress id="utilization_bar" class="uk-progress uk-align-center uk-width-1-2" value="0" max="0"></progress>
-        <button class="uk-button uk-button-primary uk-button-large uk-align-center">Upload Print</button>
+        <h3 id="utilization_title" class="uk-width-1-1 uk-text-center">Printer Usage ({{ usage }}/{{ max }} Working)</h3>
+        <progress id="utilization_bar" class="uk-progress uk-align-center uk-width-1-2" value={{ usage }} max={{ max }}></progress>
         <br>
     </div>
 
     <ul uk-accordion class="uk-margin-bottom">
-        {% for server in servers %}
-        <li>
-            <a class="uk-accordion-title" href="#">{{ server }}</a>
-            <div class="uk-accordion-content">
-                <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <h3 class="uk-card-title">Status</h3>
-                            <p id="{{ server }}_Percentage">Progress: </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-primary uk-card-body">
-                            <h3 class="uk-card-title">Gcode</h3>
-                            <p id="{{ server }}_FileName">Printing: </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-primary uk-card-body">
-                            <h3 class="uk-card-title"></h3>
-                            <p></p>
-                        </div>
-                    </div>
+        {% for printer in printers %}
+        <div class="uk-card uk-card-body uk-card-default">
+            <div class="uk-column-1-2">
+                <div>
+                    <text class="uk-card-title">{{ printer.name }}</text>
+                    <br>
+                    <span class="uk-badge">Production</span>
+                    <span class="uk-badge">PLA+</span>
+                    <span class="uk-badge">White</span>
+                </div>
+                <div class="uk-padding-small uk-padding-remove-bottom">
+                    <progress class="uk-progress uk-width-1" value={{ printer.GetPrintCompletion() }} max=100></progress>
                 </div>
             </div>
-        </li>
+            
+        </div>
         {% endfor %}
     </ul>
 

@@ -1,7 +1,0 @@
-.lenv
-.DS_Store
-src/.DS_Store
-src/app/.DS_Store
-src/__pycache__
-src/app/__pycache__
-package-lock.json
